@@ -356,34 +356,34 @@ resource "aws_db_subnet_group" "acpt3_db_sg" {
   }
 }
 
-#Create the DB
-resource "aws_db_instance" "acpt3db" {
+# #Create the DB
+# resource "aws_db_instance" "acpt3db" {
 
-  engine                 = "mysql"
-  engine_version         = "8.0"
-  identifier             = "acpt3database"
-  username               = "Admin"
-  password               = "Admin123"
-  instance_class         = "db.t2.micro"
-  db_subnet_group_name   = aws_db_subnet_group.acpt3_db_sg.id
-  vpc_security_group_ids = [aws_security_group.acpt3-sg-backend.id]
-  name                   = "acpt3db"
-  parameter_group_name   = "default.mysql8.0"
-  skip_final_snapshot    = true
-  allocated_storage      = 20
-  storage_type           = "gp2"
-  max_allocated_storage  = 1000
-  multi_az               = true
+#   engine                 = "mysql"
+#   engine_version         = "8.0"
+#   identifier             = "acpt3database"
+# #   username               = "Admin"
+# #   password               = "Admin123"
+# #   instance_class         = "db.t2.micro"
+# #   db_subnet_group_name   = aws_db_subnet_group.acpt3_db_sg.id
+# #   vpc_security_group_ids = [aws_security_group.acpt3-sg-backend.id]
+# #   name                   = "acpt3db"
+# #   parameter_group_name   = "default.mysql8.0"
+# #   skip_final_snapshot    = true
+# #   allocated_storage      = 20
+# #   storage_type           = "gp2"
+# #   max_allocated_storage  = 1000
+# #   multi_az               = true
 
 
-}
+# }
 
 
 #creating key pair 
 resource "aws_key_pair" "acpt3_keypair" {
   key_name = "acpt3-keypair"
 
-  public_key = file("/Users/nwabuko/Desktop/automated-capstone-project-team-3/Keypair.pub")
+  public_key = file("~/Keypairs/eu2acp.pub")
 
 }
 
